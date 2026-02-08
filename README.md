@@ -5,7 +5,7 @@
 
 > **Implementação prática de servidor SAMBA com controle de acesso por usuário/grupo em Linux**
 
-![Linux](https://img.shields.io/badge/Linux-Debian%2FUbuntu-red?style=flat-square&logo=linux)
+[Linux](https://img.shields.io/badge/Linux-Debian%2FUbuntu-red?style=flat-square&logo=linux)
 ![SAMBA](https://img.shields.io/badge/SAMBA-4.x-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Completo-brightgreen?style=flat-square)
 ![Autor](https://img.shields.io/badge/Autor-Vitor%20Fernandes-orange?style=flat-square)
