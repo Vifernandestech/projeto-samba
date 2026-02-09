@@ -45,13 +45,6 @@ Em qualquer infraestrutura corporativa, você precisa fazer **Linux e Windows co
 - Mínimo: 2GB RAM, 20GB disco, 1 vCPU
 - Conexão de rede (Bridge ou NAT)
 
-### Software
-```bash
-# Verifique a versão do Kali Linux
-lsb_release -a
-
-# Verifique permissões root
-sudo whoami  # Deve retornar: root
 ```
 
 ### Conhecimentos Base
@@ -89,7 +82,7 @@ Cliente Windows
        ↓
    Digite: \\192.168.X.X
        ↓
-   Credenciais: murilo / ***********
+   Credenciais: Murilo (usuário) / ***********
        ↓
    SAMBA valida no arquivo /etc/samba/smbpasswd
        ↓
@@ -175,7 +168,7 @@ cat /etc/group
 ### **Etapa 4️⃣: Atribuir Grupos aos Diretórios**
 
 ```bash
-# Mudar proprietário do grupo para cada pasta
+# Mudar grupo proprietário do diretório para cada pasta
 sudo chgrp administracao /var/administracao
 sudo chgrp atendimento /var/atendimento
 sudo chgrp compras /var/compras
@@ -209,13 +202,7 @@ sudo chmod 770 /var/rh
 sudo chmod 770 /var/ti
 sudo chmod 770 /var/vendas
 
-# Verificar permissões
-ls -la /var | grep -E "admin|atend|compras|contabil|ecomm|financ|logis|market|rh|ti|vendas"
 
-# Resultado esperado (note: drwxrwx---):
-# drwxrwx---  2 root administracao  4096 Fev  8 20:00 administracao
-# drwxrwx---  2 root atendimento    4096 Fev  8 20:00 atendimento
-# ... (note: 3 primeiros "rwx", 3 segundos "rwx", 3 últimos "---")
 ```
 
 ### **Etapa 6️⃣: Criar Usuários e Atribuir aos Grupos**
@@ -236,12 +223,7 @@ sudo useradd -m mariana
 sudo usermod -g marketing mariana
 sudo passwd mariana  # Senha: padrao1234
 
-# Verificar usuários e seus grupos
-id murilo
-# uid=1001(murilo) gid=1002(ti) groups=1002(ti)
 
-id mariana
-# uid=1002(mariana) gid=1003(marketing) groups=1003(marketing)
 ```
 
 ### **Etapa 7️⃣: Configurar SAMBA (smb.conf)**
@@ -362,14 +344,6 @@ sudo nano /etc/samba/smb.conf
 3. Pressione `Ctrl+O` para salvar, depois `Enter`
 4. Pressione `Ctrl+X` para sair do nano
 
-```bash
-# Validar sintaxe do arquivo
-sudo testparm
-
-# Resultado esperado:
-# Load smb config files from /etc/samba/smb.conf
-# Loaded services file OK.
-# ✓ Syntax is OK
 ```
 
 ### **Etapa 8️⃣: Criar Senha SAMBA (Diferente da Senha Linux!)**
@@ -408,12 +382,7 @@ sudo systemctl status smbd
 # ● smbd.service - Samba SMB Daemon
 #    Active: active (running) ✓
 
-# Verificar se está ouvindo nas portas corretas
-sudo ss -tlnp | grep smbd
 
-# Resultado esperado:
-# LISTEN  0  255  0.0.0.0:139   0.0.0.0:*  smbd
-# LISTEN  0  255  0.0.0.0:445   0.0.0.0:*  smbd
 ```
 
 ---
@@ -466,68 +435,24 @@ sudo ss -tlnp | grep smbd
 
 ## 🧪 Teste de Conectividade
 
-### **Teste 1: Do próprio Kali (Linux)**
-
-```bash
-# Listar compartilhamentos disponíveis
-smbclient -L localhost -U murilo%Senac@123
-
-# Resultado esperado:
-#	Sharename       Type      Comment
-#	---------       ----      -------
-#	administracao   Disk      Compartilhamento Administração
-#	marketing       Disk      Compartilhamento Marketing
-#	ti              Disk      Compartilhamento TI
-#	... (todos os 11 compartilhamentos)
-
-# Conectar a um compartilhamento específico
-smbclient //localhost/ti -U murilo%Senac@123
-
-# Dentro do smbclient (prompt: smb: \>):
-#   ls                 # Listar arquivos
-#   put arquivo.txt    # Enviar arquivo
-#   get arquivo.txt    # Baixar arquivo
-#   quit               # Sair
-```
-
-### **Teste 2: De um Cliente Windows**
+### **Teste: De um Cliente Windows**
 
 ```batch
-REM Abrir Explorador de Arquivos (Windows + E)
-REM Na barra de endereço, digite:
+Abrir Explorador de Arquivos (Windows + E)
+Na barra de endereço, digite:
 
 \\192.168.X.X
 
-REM Substitua X.X pelo IP do Kali
-REM Exemplo: \\192.168.1.100
+Substitua X.X pelo IP do Kali
+Exemplo: \\192.168.1.100
 
-REM Quando solicitado:
-REM   Usuário: murilo
-REM   Senha: Senac@123
+Quando solicitado:
+Usuário: murilo
+Senha: Senac@123
 
-REM Resultado: Você verá todos os 11 compartilhamentos!
+Resultado: Você verá todos os 11 compartilhamentos!
 ```
 
-### **Teste 3: Montar Compartilhamento (Linux)**
-
-```bash
-# Criar ponto de montagem
-sudo mkdir -p /mnt/samba_ti
-
-# Montar compartilhamento
-sudo mount -t cifs //localhost/ti -o username=murilo,password=Senac@123 /mnt/samba_ti
-
-# Verificar montagem
-mount | grep samba_ti
-
-# Resultado esperado:
-# //localhost/ti on /mnt/samba_ti type cifs (...)
-
-# Listar conteúdo
-ls -la /mnt/samba_ti
-
-# Desmontar quando terminar
-sudo umount /mnt/samba_ti
 ```
 
 ---
@@ -622,7 +547,7 @@ passwd usuario          # Definir senha
 ```bash
 groupadd nome_grupo     # Criar grupo
 chgrp grupo pasta       # Atribuir grupo à pasta
-grep grupo /etc/group   # Listar usuários do grupo
+cat /etc/group   # Listar usuários do grupo
 ```
 
 ### 4️⃣ **Permissões de Arquivo (chmod)**
