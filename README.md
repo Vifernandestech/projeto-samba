@@ -54,7 +54,6 @@ Em qualquer infraestrutura corporativa, você precisa fazer **Linux e Windows co
 - ✅ Permissões de arquivo (chmod, chown, chgrp - conceito)
 - ✅ Editor de texto nano
 
----
 ```
 
 ## 🏗️ Arquitetura do Projeto
@@ -611,5 +610,3 @@ systemctl enable smbd      # Ativar na inicialização
 **Status:** Projeto Completo ✅  
 **Versão:** 1.0.0
 ```
-
-
