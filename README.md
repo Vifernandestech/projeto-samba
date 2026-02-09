@@ -78,9 +78,8 @@ SERVIDOR SAMBA (Kali Linux)
 │   └── /etc/samba/smb.conf (11 compartilhamentos configurados)
 │
 └── Acesso de Clientes
-    ├── Windows Explorer: \\192.168.X.X
-    ├── Linux: mount -t cifs, smbclient
-    └── macOS: smb://192.168.X.X
+    └── Windows Explorer: \\192.168.X.X
+ 
 ```
 
 ### Fluxo de Autenticação
@@ -90,7 +89,7 @@ Cliente Windows
        ↓
    Digite: \\192.168.X.X
        ↓
-   Credenciais: murilo / Senac@123
+   Credenciais: murilo / ***********
        ↓
    SAMBA valida no arquivo /etc/samba/smbpasswd
        ↓
@@ -110,7 +109,7 @@ Cliente Windows
 sudo apt update && sudo apt upgrade -y
 
 # Instalar SAMBA
-sudo apt install samba samba-common samba-common-bin -y
+sudo apt install smbd -y
 
 # Iniciar o serviço
 sudo systemctl start smbd
@@ -138,7 +137,7 @@ sudo mkdir -p administracao atendimento compras contabilidade ecommerce \
                financeiro logistica marketing rh ti vendas
 
 # Verificar criação
-ls -la /var | grep -E "admin|atend|compras|contabil|ecomm|financ|logis|market|rh|ti|vendas"
+ls -la /var 
 
 # Resultado esperado:
 # drwxr-xr-x  2 root root  4096 Fev  8 20:00 administracao
@@ -164,7 +163,7 @@ sudo groupadd ti
 sudo groupadd vendas
 
 # Verificar grupos criados
-grep -E "admin|atend|compras|contabil|ecomm|financ|logis|market|rh|ti|vendas" /etc/group
+cat /etc/group
 
 # Resultado esperado:
 # administracao:x:1001:
@@ -188,14 +187,6 @@ sudo chgrp marketing /var/marketing
 sudo chgrp rh /var/rh
 sudo chgrp ti /var/ti
 sudo chgrp vendas /var/vendas
-
-# Verificar atribuição
-ls -la /var | grep -E "admin|atend|compras|contabil|ecomm|financ|logis|market|rh|ti|vendas"
-
-# Resultado esperado (grupo no 4º campo):
-# drwxr-xr-x  2 root administracao  4096 Fev  8 20:00 administracao
-# drwxr-xr-x  2 root atendimento    4096 Fev  8 20:00 atendimento
-# ... (observe o grupo, não mais "root")
 ```
 
 ### **Etapa 5️⃣: Definir Permissões (chmod 770)**
