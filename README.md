@@ -79,7 +79,7 @@ SERVIDOR SAMBA (Kali Linux)
 
 ### Fluxo de Autenticação
 
-
+```
 Cliente Windows
        ↓
    Digite: \\192.168.X.X
@@ -91,10 +91,9 @@ Cliente Windows
    Verifica se usuário está no grupo correto
        ↓
    ✅ Acesso autorizado → Pasta específica do departamento
+
 ```
 
----
-```
 ## 🚀 Setup Passo a Passo
 
 ### **Etapa 1️⃣: Atualizar Sistema e Instalar SAMBA**
