@@ -10,22 +10,6 @@
 
 ---
 
-## 📋 Índice
-
-- [Visão Geral](#visão-geral)
-- [Pré-Requisitos](#pré-requisitos)
-- [Arquitetura do Projeto](#arquitetura-do-projeto)
-- [Setup Passo a Passo](#setup-passo-a-passo)
-- [Estrutura de Compartilhamentos](#estrutura-de-compartilhamentos)
-- [Configuração SAMBA](#configuração-samba)
-- [Teste de Conectividade](#teste-de-conectividade)
-- [Troubleshooting](#troubleshooting)
-- [Conceitos Aprendidos](#conceitos-aprendidos)
-- [Próximos Passos](#próximos-passos)
-- [Autor](#autor)
-
----
-
 ## 🎯 Visão Geral
 
 Este projeto implementa um **servidor SAMBA corporativo** do zero com:
