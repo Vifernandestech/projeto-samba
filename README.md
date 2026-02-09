@@ -344,8 +344,6 @@ sudo nano /etc/samba/smb.conf
 3. Pressione `Ctrl+O` para salvar, depois `Enter`
 4. Pressione `Ctrl+X` para sair do nano
 
-```
-```
 
 ### **Etapa 8️⃣: Criar Senha SAMBA (Diferente da Senha Linux!)**
 
