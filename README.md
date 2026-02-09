@@ -452,9 +452,6 @@ Senha: Senac@123
 Resultado: Você verá todos os 11 compartilhamentos!
 ```
 
-```
-
-```
 ## 🔍 Troubleshooting
 
 ### **Problema: "Acesso Negado" ao conectar do Windows**
@@ -606,4 +603,3 @@ systemctl enable smbd      # Ativar na inicialização
 **Última atualização:** Fevereiro 2026  
 **Status:** Projeto Completo ✅  
 **Versão:** 1.0.0
-```
