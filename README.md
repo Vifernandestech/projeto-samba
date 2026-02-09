@@ -55,9 +55,11 @@ Em qualquer infraestrutura corporativa, você precisa fazer **Linux e Windows co
 - ✅ Editor de texto nano
 
 ---
+```
 
 ## 🏗️ Arquitetura do Projeto
 
+```
 
 SERVIDOR SAMBA (Kali Linux)
 │
@@ -92,7 +94,7 @@ Cliente Windows
 ```
 
 ---
-
+```
 ## 🚀 Setup Passo a Passo
 
 ### **Etapa 1️⃣: Atualizar Sistema e Instalar SAMBA**
@@ -345,6 +347,7 @@ sudo nano /etc/samba/smb.conf
 4. Pressione `Ctrl+X` para sair do nano
 
 ```
+```
 
 ### **Etapa 8️⃣: Criar Senha SAMBA (Diferente da Senha Linux!)**
 
@@ -456,7 +459,7 @@ Resultado: Você verá todos os 11 compartilhamentos!
 ```
 
 ---
-
+```
 ## 🔍 Troubleshooting
 
 ### **Problema: "Acesso Negado" ao conectar do Windows**
