@@ -456,7 +456,6 @@ Resultado: Você verá todos os 11 compartilhamentos!
 
 ```
 
----
 ```
 ## 🔍 Troubleshooting
 
