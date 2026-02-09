@@ -58,7 +58,7 @@ Em qualquer infraestrutura corporativa, você precisa fazer **Linux e Windows co
 
 ## 🏗️ Arquitetura do Projeto
 
-```
+
 SERVIDOR SAMBA (Kali Linux)
 │
 ├── Usuários Linux + Grupos (11 grupos)
@@ -77,7 +77,7 @@ SERVIDOR SAMBA (Kali Linux)
 
 ### Fluxo de Autenticação
 
-```
+
 Cliente Windows
        ↓
    Digite: \\192.168.X.X
